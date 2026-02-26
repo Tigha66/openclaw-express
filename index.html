@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenClaw Express | One-Click AI Agent Deployment</title>
+  <title>OpenClaw Express | Get Your OpenClaw Instance</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -15,95 +15,105 @@
   </style>
 </head>
 <body class="gradient-bg min-h-screen text-white">
+  <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-50 glass">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-          <span class="text-xl">⚡</span>
-        </div>
-        <span class="text-xl font-bold">OpenClaw Express</span>
+        <span class="text-xl font-bold">⚡ OpenClaw Express</span>
       </div>
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="pt-32 pb-20 px-6">
-    <div class="max-w-7xl mx-auto text-center">
-      <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-        Deploy OpenClaw<br>
-        <span class="gradient-text">In Seconds</span>
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl font-bold mb-6">
+        Get Your Own<br>
+        <span class="gradient-text">OpenClaw Instance</span>
       </h1>
-      <p class="text-xl text-white/70 max-w-2xl mx-auto mb-10">
-        No coding required. One-click deployment.
+      <p class="text-xl text-white/70 mb-10">
+        We host and manage your OpenClaw. Just tell us what you need.
       </p>
     </div>
   </section>
 
-  <section id="contact" class="py-20 px-6">
-    <div class="max-w-xl mx-auto glass rounded-3xl p-8">
-      <h2 class="text-3xl font-bold mb-8 text-center">Start Free Trial</h2>
+  <!-- Signup Form -->
+  <section class="py-10 px-6">
+    <div class="max-w-md mx-auto glass rounded-3xl p-8">
+      <h2 class="text-2xl font-bold mb-6 text-center">Request Access</h2>
       
-      <form id="trial-form" class="space-y-6">
+      <form action="https://formspree.io/f/xpwzgvqg" method="POST" class="space-y-4">
         <div>
-          <label class="block text-sm text-white/60 mb-2">Name *</label>
-          <input type="text" id="name" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl" placeholder="Your name" required>
+          <label class="block text-sm text-white/60 mb-2">Your Name *</label>
+          <input type="text" name="name" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl">
         </div>
         
         <div>
           <label class="block text-sm text-white/60 mb-2">Email *</label>
-          <input type="email" id="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl" placeholder="you@company.com" required>
+          <input type="email" name="email" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl">
         </div>
         
         <div>
-          <label class="block text-sm text-white/60 mb-2">Company</label>
-          <input type="text" id="company" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl" placeholder="Your company">
-        </div>
-        
-        <div>
-          <label class="block text-sm text-white/60 mb-2">Plan</label>
-          <select id="plan" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl">
-            <option value="starter">Starter - £29/mo</option>
-            <option value="pro">Pro - £79/mo</option>
-            <option value="enterprise">Enterprise - £199/mo</option>
+          <label class="block text-sm text-white/60 mb-2">What do you need?</label>
+          <select name="need" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl">
+            <option>Email automation</option>
+            <option>Customer support chatbot</option>
+            <option>Lead generation</option>
+            <option>Other</option>
           </select>
         </div>
         
-        <button type="submit" class="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-semibold hover:scale-[1.02] transition">
-          Start Free Trial
+        <div>
+          <label class="block text-sm text-white/60 mb-2">Budget</label>
+          <select name="budget" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl">
+            <option>£29-79/month</option>
+            <option>£79-199/month</option>
+            <option>£199+/month</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-bold hover:scale-[1.02] transition">
+          Submit Request
         </button>
       </form>
+    </div>
+  </section>
 
-      <div id="success-message" class="hidden text-center py-8">
-        <div class="text-6xl mb-4">✅</div>
-        <h3 class="text-2xl font-bold mb-2">You're In!</h3>
-        <p class="text-white/60">We'll contact you soon!</p>
+  <!-- How It Works -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-10 text-center">How It Works</h2>
+      
+      <div class="space-y-6">
+        <div class="glass rounded-xl p-6 flex gap-4">
+          <div class="text-3xl">1</div>
+          <div>
+            <h3 class="font-bold mb-2">Submit Your Request</h3>
+            <p class="text-white/60">Tell us what you need your AI to do</p>
+          </div>
+        </div>
+        
+        <div class="glass rounded-xl p-6 flex gap-4">
+          <div class="text-3xl">2</div>
+          <div>
+            <h3 class="font-bold mb-2">We Configure</h3>
+            <p class="text-white/60">We set up your OpenClaw instance</p>
+          </div>
+        </div>
+        
+        <div class="glass rounded-xl p-6 flex gap-4">
+          <div class="text-3xl">3</div>
+          <div>
+            <h3 class="font-bold mb-2">You Go Live</h3>
+            <p class="text-white/60">Your AI agent starts working</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-12 px-6 border-t border-white/10 text-center">
-    <p class="text-white/60">© 2026 OpenClaw Express</p>
+  <footer class="py-10 text-center text-white/40">
+    <p>© 2026 OpenClaw Express - tigha66@gmail.com</p>
   </footer>
-
-  <script>
-    document.getElementById('trial-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const company = document.getElementById('company').value;
-      const plan = document.getElementById('plan').value;
-      
-      // Send email notification to admin
-      const subject = encodeURIComponent(`🎉 New OpenClaw Express Signup: ${name}`);
-      const body = encodeURIComponent(`NEW SIGNUP!\n\nName: ${name}\nEmail: ${email}\nCompany: ${company}\nPlan: ${plan}\nDate: ${new Date().toISOString()}`);
-      
-      // Open email to admin
-      window.location.href = `mailto:tigha66@gmail.com?subject=${subject}&body=${body}`;
-      
-      // Show success
-      document.getElementById('trial-form').classList.add('hidden');
-      document.getElementById('success-message').classList.remove('hidden');
-    });
-  </script>
 </body>
 </html>
