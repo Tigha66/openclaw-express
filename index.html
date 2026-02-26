@@ -15,7 +15,6 @@
   </style>
 </head>
 <body class="gradient-bg min-h-screen text-white">
-  <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-50 glass">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -24,11 +23,9 @@
         </div>
         <span class="text-xl font-bold">OpenClaw Express</span>
       </div>
-      <a href="#contact" class="px-5 py-2 bg-purple-600 rounded-full font-medium hover:bg-purple-500 transition">Get Started</a>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="pt-32 pb-20 px-6">
     <div class="max-w-7xl mx-auto text-center">
       <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -36,48 +33,23 @@
         <span class="gradient-text">In Seconds</span>
       </h1>
       <p class="text-xl text-white/70 max-w-2xl mx-auto mb-10">
-        No coding required. One-click deployment. Connect your tools and go live in minutes.
+        No coding required. One-click deployment.
       </p>
-      <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-lg hover:scale-105 transition glow">
-        Start Free Trial
-      </a>
     </div>
   </section>
 
-  <!-- Features -->
-  <section class="py-20 px-6">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-      <div class="glass rounded-3xl p-8 text-center">
-        <div class="text-4xl mb-4">🚀</div>
-        <h3 class="text-xl font-bold mb-2">One-Click Deploy</h3>
-        <p class="text-white/60">Deploy in seconds, not hours</p>
-      </div>
-      <div class="glass rounded-3xl p-8 text-center">
-        <div class="text-4xl mb-4">💳</div>
-        <h3 class="text-xl font-bold mb-2">Stripe Ready</h3>
-        <p class="text-white/60">Built-in payment integration</p>
-      </div>
-      <div class="glass rounded-3xl p-8 text-center">
-        <div class="text-4xl mb-4">🎨</div>
-        <h3 class="text-xl font-bold mb-2">No-Code Builder</h3>
-        <p class="text-white/60">Customize without code</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Form -->
   <section id="contact" class="py-20 px-6">
     <div class="max-w-xl mx-auto glass rounded-3xl p-8">
       <h2 class="text-3xl font-bold mb-8 text-center">Start Free Trial</h2>
       
       <form id="trial-form" class="space-y-6">
         <div>
-          <label class="block text-sm text-white/60 mb-2">Name</label>
+          <label class="block text-sm text-white/60 mb-2">Name *</label>
           <input type="text" id="name" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl" placeholder="Your name" required>
         </div>
         
         <div>
-          <label class="block text-sm text-white/60 mb-2">Email</label>
+          <label class="block text-sm text-white/60 mb-2">Email *</label>
           <input type="email" id="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl" placeholder="you@company.com" required>
         </div>
         
@@ -100,47 +72,37 @@
         </button>
       </form>
 
-      <!-- Success Message (Hidden by default) -->
       <div id="success-message" class="hidden text-center py-8">
         <div class="text-6xl mb-4">✅</div>
         <h3 class="text-2xl font-bold mb-2">You're In!</h3>
-        <p class="text-white/60 mb-4">Check your email for next steps.</p>
-        <p class="text-sm text-white/40">We'll contact you at <span id="confirm-email"></span></p>
+        <p class="text-white/60">We'll contact you soon!</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="py-12 px-6 border-t border-white/10 text-center">
     <p class="text-white/60">© 2026 OpenClaw Express</p>
-    <p class="text-white/40 mt-2">tigha66@gmail.com</p>
   </footer>
 
   <script>
-    document.getElementById('trial-form').addEventListener('submit', function(e) {
+    document.getElementById('trial-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      // Get form data
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const company = document.getElementById('company').value;
       const plan = document.getElementById('plan').value;
       
-      // Save to localStorage
-      const leads = JSON.parse(localStorage.getItem('openclawLeads') || '[]');
-      leads.push({
-        name, email, company, plan,
-        date: new Date().toISOString()
-      });
-      localStorage.setItem('openclawLeads', JSON.stringify(leads));
+      // Send email notification to admin
+      const subject = encodeURIComponent(`🎉 New OpenClaw Express Signup: ${name}`);
+      const body = encodeURIComponent(`NEW SIGNUP!\n\nName: ${name}\nEmail: ${email}\nCompany: ${company}\nPlan: ${plan}\nDate: ${new Date().toISOString()}`);
+      
+      // Open email to admin
+      window.location.href = `mailto:tigha66@gmail.com?subject=${subject}&body=${body}`;
       
       // Show success
       document.getElementById('trial-form').classList.add('hidden');
       document.getElementById('success-message').classList.remove('hidden');
-      document.getElementById('confirm-email').textContent = email;
-      
-      // Log for admin
-      console.log('📝 New lead:', { name, email, company, plan });
     });
   </script>
 </body>
