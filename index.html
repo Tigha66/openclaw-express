@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw Express | One-Click AI Agent Deployment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); }
+    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); }
+    .glow { box-shadow: 0 0 60px rgba(139, 92, 246, 0.3); }
+    .gradient-text { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+    @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); } 50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6); } }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+          <span class="text-xl">⚡</span>
+        </div>
+        <span class="text-xl font-bold">OpenClaw Express</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#features" class="text-white/70 hover:text-white">Features</a>
+        <a href="#pricing" class="text-white/70 hover:text-white">Pricing</a>
+        <a href="#how-it-works" class="text-white/70 hover:text-white">How It Works</a>
+        <a href="#contact" class="px-5 py-2 bg-purple-600 rounded-full font-medium hover:bg-purple-500 transition">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm mb-8">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        One-Click Deployment
+      </div>
+      
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        Deploy OpenClaw<br>
+        <span class="gradient-text">In Seconds, Not Hours</span>
+      </h1>
+      
+      <p class="text-xl text-white/70 max-w-2xl mx-auto mb-10">
+        No coding required. One-click deployment of your AI agent. 
+        Connect your tools, customize, and go live in minutes.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-lg hover:scale-105 transition glow">
+          Deploy Now - Free Trial
+        </a>
+        <a href="#demo" class="px-8 py-4 glass rounded-full font-semibold text-lg hover:bg-white/10 transition">
+          Watch Demo
+        </a>
+      </div>
+
+      <!-- Dashboard Preview -->
+      <div class="mt-16 max-w-5xl mx-auto">
+        <div class="glass rounded-2xl p-2 glow">
+          <div class="bg-black/40 rounded-xl p-6">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4 text-left">
+              <div class="bg-purple-500/20 rounded-lg p-4">
+                <p class="text-2xl font-bold">247</p>
+                <p class="text-white/60 text-sm">Messages Today</p>
+              </div>
+              <div class="bg-pink-500/20 rounded-lg p-4">
+                <p class="text-2xl font-bold">98%</p>
+                <p class="text-white/60 text-sm">Success Rate</p>
+              </div>
+              <div class="bg-blue-500/20 rounded-lg p-4">
+                <p class="text-2xl font-bold">£2,450</p>
+                <p class="text-white/60 text-sm">Saved This Month</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why OpenClaw Express -->
+  <section id="features" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Why Choose OpenClaw Express?</h2>
+        <p class="text-white/60">Better than SimpleClaw, MyClaw, EasyClaw</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass rounded-3xl p-8 hover:scale-105 transition">
+          <div class="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center text-3xl mb-6">🚀</div>
+          <h3 class="text-2xl font-bold mb-4">One-Click Deploy</h3>
+          <p class="text-white/60">Deploy your AI agent in seconds. No coding, no complex setup. Just click and go.</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 hover:scale-105 transition">
+          <div class="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center text-3xl mb-6">💳</div>
+          <h3 class="text-2xl font-bold mb-4">Built-in Payments</h3>
+          <p class="text-white/60">Stripe integration included. Accept payments from day one. No extra plugins needed.</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 hover:scale-105 transition">
+          <div class="w-16 h-16 rounded-2xl bg-pink-500/20 flex items-center justify-center text-3xl mb-6">🎨</div>
+          <h3 class="text-2xl font-bold mb-4">No-Code Customization</h3>
+          <p class="text-white/60">Easy drag-and-drop interface. Customize your agent without writing a single line of code.</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 hover:scale-105 transition">
+          <div class="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center text-3xl mb-6">📊</div>
+          <h3 class="text-2xl font-bold mb-4">Real-time Analytics</h3>
+          <p class="text-white/60">Track performance, revenue, and customer engagement in one beautiful dashboard.</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 hover:scale-105 transition">
+          <div class="w-16 h-16 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-3xl mb-6">🔌</div>
+          <h3 class="text-2xl font-bold mb-4">50+ Integrations</h3>
+          <p class="text-white/60">Connect to Gmail, Slack, WhatsApp, CRM, and more. Pre-built templates for every industry.</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 hover:scale-105 transition">
+          <div class="w-16 h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-3xl mb-6">🛡️</div>
+          <h3 class="text-2xl font-bold mb-4">Enterprise Security</h3>
+          <p class="text-white/60">Bank-level encryption. SOC2 compliant. Your data is safe with us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="py-20 px-6 bg-black/20">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">How We Compare</h2>
+      </div>
+
+      <div class="glass rounded-3xl overflow-hidden">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="text-left p-6">Feature</th>
+              <th class="text-center p-6 text-purple-400">OpenClaw Express</th>
+              <th class="text-center p-6 text-white/40">SimpleClaw</th>
+              <th class="text-center p-6 text-white/40">MyClaw</th>
+              <th class="text-center p-6 text-white/40">EasyClaw</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-white/5">
+              <td class="p-6">One-Click Deploy</td>
+              <td class="text-center p-6 text-green-400">✅ Yes</td>
+              <td class="text-center p-6 text-white/40">❌</td>
+              <td class="text-center p-6 text-white/40">⚠️ Complex</td>
+              <td class="text-center p-6 text-white/40">⚠️ Complex</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="p-6">Built-in Payments</td>
+              <td class="text-center p-6 text-green-400">✅ Stripe Included</td>
+              <td class="text-center p-6 text-white/40">❌</td>
+              <td class="text-center p-6 text-white/40">Add-on</td>
+              <td class="text-center p-6 text-white/40">Add-on</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="p-6">No-Code Builder</td>
+              <td class="text-center p-6 text-green-400">✅</td>
+              <td class="text-center p-6 text-white/40">Limited</td>
+              <td class="text-center p-6 text-white/40">✅</td>
+              <td class="text-center p-6 text-white/40">✅</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="p-6">50+ Integrations</td>
+              <td class="text-center p-6 text-green-400">✅</td>
+              <td class="text-center p-6 text-white/40">10</td>
+              <td class="text-center p-6 text-white/40">25</td>
+              <td class="text-center p-6 text-white/40">30</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="p-6">Analytics Dashboard</td>
+              <td class="text-center p-6 text-green-400">✅ Advanced</td>
+              <td class="text-center p-6 text-white/40">Basic</td>
+              <td class="text-center p-6 text-white/40">Basic</td class="text-center p-6 text>
+              <td-white/40">Basic</td>
+            </tr>
+            <tr>
+              <td class="p-6">Starting Price</td>
+              <td class="text-center p-6 text-green-400 font-bold">£29/mo</td>
+              <td class="text-center p-6 text-white/40">£49/mo</td>
+              <td class="text-center p-6 text-white/40">£39/mo</td>
+              <td class="text-center p-6 text£45-white/40">/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">How It Works</h2>
+        <p class="text-white/60">Deploy your AI agent in 3 simple steps</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-purple-500/20 flex items-center justify-center text-3xl font-bold mb-4">1</div>
+          <h3 class="text-xl font-bold mb-2">Choose Template</h3>
+          <p class="text-white/60">Select from 20+ pre-built templates for your industry</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-pink-500/20 flex items-center justify-center text-3xl font-bold mb-4">2</div>
+          <h3 class="text-xl font-bold mb-2">Connect Tools</h3>
+          <p class="text-white/60">Link your email, calendar, CRM, and payment accounts</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-green-500/20 flex items-center justify-center text-3xl font-bold mb-4">3</div>
+          <h3 class="text-xl font-bold mb-2">Go Live!</h3>
+          <p class="text-white/60">Click deploy. Your AI agent is live in seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+        <p class="text-white/60">Start free, scale as you grow</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Starter -->
+        <div class="glass rounded-3xl p-8">
+          <h3 class="text-xl font-semibold mb-2">🚀 Starter</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-bold">£29</span>
+            <span class="text-white/60">/month</span>
+          </div>
+          <p class="text-white/60 mb-6">Perfect for individuals</p>
+          <ul class="space-y-3 text-white/80 mb-8">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 1 AI Agent</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 1,000 messages/month</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 5 Integrations</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Email Support</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Basic Analytics</li>
+          </ul>
+          <button onclick="selectPlan('starter')" class="w-full py-3 border border-purple-500 rounded-full font-medium hover:bg-purple-500 transition">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Pro -->
+        <div class="glass rounded-3xl p-8 border-2 border-purple-500 glow">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-purple-500 rounded-full text-sm font-medium">Most Popular</div>
+          <h3 class="text-xl font-semibold mb-2">⚡ Pro</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-bold">£79</span>
+            <span class="text-white/60">/month</span>
+          </div>
+          <p class="text-white/60 mb-6">For growing businesses</p>
+          <ul class="space-y-3 text-white/80 mb-8">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 3 AI Agents</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 10,000 messages/month</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 25 Integrations</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Priority Support</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Stripe Included</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Advanced Analytics</li>
+          </ul>
+          <button onclick="selectPlan('pro')" class="w-full py-3 bg-purple-600 rounded-full font-medium hover:bg-purple-500 transition">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="glass rounded-3xl p-8">
+          <h3 class="text-xl font-semibold mb-2">🏢 Enterprise</h3>
+          <div class="mb-6">
+            <span class="text-4xl font-bold">£199</span>
+            <span class="text-white/60">/month</span>
+          </div>
+          <p class="text-white/60 mb-6">For agencies & teams</p>
+          <ul class="space-y-3 text-white/80 mb-8">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Unlimited AI Agents</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Unlimited Messages</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 50+ Integrations</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Dedicated Support</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Custom Branding</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> White-label</li>
+          </ul>
+          <button onclick="selectPlan('enterprise')" class="w-full py-3 border border-purple-500 rounded-full font-medium hover:bg-purple-500 transition">
+            Contact Sales
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-green-400 font-medium">🔒 30-day money-back guarantee • No credit card required for trial</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Section -->
+  <section id="payment" class="py-20 px-6 bg-black/20">
+    <div class="max-w-2xl mx-auto glass rounded-3xl p-8">
+      <h2 class="text-3xl font-bold mb-8 text-center">Start Your Free Trial</h2>
+      
+      <form id="payment-form" class="space-y-6">
+        <div>
+          <label class="block text-sm text-white/60 mb-2">Email</label>
+          <input type="email" id="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500" placeholder="you@company.com" required>
+        </div>
+        
+        <div>
+          <label class="block text-sm text-white/60 mb-2">Choose Plan</label>
+          <select id="plan" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500">
+            <option value="starter">Starter - £29/mo</option>
+            <option value="pro" selected>Pro - £79/mo (Popular)</option>
+            <option value="enterprise">Enterprise - £199/mo</option>
+          </select>
+        </div>
+        
+        <div>
+          <label class="block text-sm text-white/60 mb-2">Card Details</label>
+          <div id="card-element" class="px-4 py-3 bg-white/5 border border-white/10 rounded-xl">
+            <!-- Stripe Element will be inserted here -->
+          </div>
+        </div>
+        
+        <button type="submit" class="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-semibold hover:scale-[1.02] transition">
+          Start Free Trial
+        </button>
+        
+        <p class="text-center text-white/40 text-sm">
+          🔒 Secured by Stripe. Cancel anytime.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-white/10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+          <span>⚡</span>
+        </div>
+        <span class="font-semibold">OpenClaw Express</span>
+      </div>
+      <p class="text-white/60 text-sm">© 2026 OpenClaw Express. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="mailto:tigha66@gmail.com" class="text-white/60 hover:text-white">tigha66@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Stripe setup (replace with your actual publishable key)
+    const stripe = Stripe('pk_test_YOUR_KEY_HERE');
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+    cardElement.mount('#card-element');
+
+    function selectPlan(plan) {
+      document.getElementById('plan').value = plan;
+      document.getElementById('payment').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('payment-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // In production, you would:
+      // 1. Send email to your backend
+      // 2. Create Stripe customer
+      // 3. Create subscription
+      // 4. Handle webhook
+      
+      alert('Demo mode! In production, this would create a Stripe subscription.');
+    });
+  </script>
+</body>
+</html>
